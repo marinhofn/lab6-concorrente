@@ -1,4 +1,4 @@
-package java.scenario1;
+package scenario1;
 import java.util.Random;
 
 public class Task {

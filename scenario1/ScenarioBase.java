@@ -1,11 +1,9 @@
-package java.scenario1;
+package scenario1;
 import java.util.concurrent.*;
-
-
 public class ScenarioBase {
     public static void main(String[] args) {
-        int numProducers = 3; // Número de produtores
-        int numNodes = 5; // Número de nós de processamento
+        int numProducers = 5; // Número de produtores
+        int numNodes = 3; // Número de nós de processamento
         BlockingQueue<Task> taskQueue = new LinkedBlockingQueue<>();
         ConcurrentHashMap<Long, String> resultStorage = new ConcurrentHashMap<>();
   
@@ -20,8 +18,8 @@ public class ScenarioBase {
   
         executor.shutdown();
         try {
-            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
             System.out.println("All tasks processed.");
+            executor.awaitTermination(10, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package java.scenario1;
+package scenario1;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 

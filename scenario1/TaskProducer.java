@@ -1,4 +1,4 @@
-package java.scenario1;
+package scenario1;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicLong;
@@ -23,8 +23,10 @@ public class TaskProducer implements Runnable {
             long id = nextId.getAndIncrement(); // Gera um novo ID
             Task task = new Task(id);
             try {
+                System.out.println("Producer created");
+                
                 queue.put(task);
-                Thread.sleep(500 + new Random().nextInt(2000)); // Intervalo randômico entre tarefas
+                Thread.sleep(5000); // Intervalo randômico entre tarefas
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 System.out.println("Producer interrupted");
